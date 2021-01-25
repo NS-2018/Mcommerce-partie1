@@ -116,6 +116,13 @@ public class ProductController {
     	return pdtMargeMap;
     	
     }
+    
+    @GetMapping(value = "trierProduitsParOrdreAlphabetique")
+    public List<Product> trierProduitsParOrdreAlphabetique(){
+    	List<Product> products=productDao.findAll();
+    	products.sort((p1,p2)-> p1.getNom().compareTo(p2.getNom()));
+    	return products;
+    }
 
 
 }
